@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit 2 學習迷思・互動教學</title>
+<style>
+:root{--bg:#fbf7f2;--card:#fff;--tx:#2b2b2b;--mu:#6b6b6b;--ac:#ef7b45;--ac2:#2f9e8f;--bl:#1d8fd1;--bd:#e6ddd2;--hl:#e3f3fb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1b1a;--card:#292725;--tx:#eee;--mu:#a9a39c;--bd:#403c38;--hl:#1e3a48;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 system-ui,"Noto Sans TC","PingFang TC",sans-serif}
+header{padding:18px 16px 6px;max-width:760px;margin:auto}
+h1{margin:0;font-size:24px;color:var(--ac)}header p{margin:2px 0;color:var(--mu);font-size:14px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding:8px 12px;max-width:760px;margin:auto;z-index:5}
+nav button{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:7px 13px;border-radius:20px;white-space:nowrap;font-size:14px;cursor:pointer}
+nav button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+main{max-width:760px;margin:auto;padding:8px 14px 60px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px 16px;margin:12px 0}
+.card{scroll-margin-top:64px}.w2{cursor:pointer;border-radius:4px}.w2:hover{background:var(--hl)}
+.tag{display:inline-block;background:var(--ac2);color:#fff;border-radius:14px;padding:1px 12px;font-size:13px;font-weight:700}
+.tag.m{background:#c0504d}.pic{font-size:54px;float:right;margin:0 0 4px 10px;line-height:1}
+.q{font-weight:700;font-style:italic;font-size:17px;margin:6px 0}
+.en{font-size:17px}.w{color:var(--bl);border-bottom:2px dotted var(--bl);cursor:pointer}
+.zh{background:var(--hl);border-radius:10px;padding:8px 10px;margin-top:8px;display:none;font-size:15px}
+.zh.show{display:block}.sm{border:1px solid var(--bd);background:none;color:var(--mu);border-radius:12px;padding:3px 10px;font-size:13px;cursor:pointer;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.vc{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px;text-align:center;cursor:pointer}
+.vc b{font-size:18px;display:block}.vc span{font-size:34px}.vc small{color:var(--mu)}
+#ov{position:fixed;inset:0;background:#0007;display:none;align-items:flex-end;justify-content:center;z-index:20}
+#ov.on{display:flex}
+#sh{background:var(--card);width:100%;max-width:640px;max-height:80%;overflow:auto;border-radius:20px 20px 0 0;padding:18px 18px calc(24px + env(safe-area-inset-bottom,0px))}
+#sh h2{margin:0 0 2px;color:var(--ac)}#sh .big{font-size:48px;float:right}
+#sh ul{padding-left:20px;margin:6px 0}.ex{border-left:4px solid var(--ac2);padding-left:10px;margin:8px 0}
+.ex i{color:var(--mu);font-size:14px;display:block;font-style:normal}
+.opt{display:block;width:100%;text-align:left;margin:5px 0;padding:8px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:15px;cursor:pointer}
+.opt.ok{background:#2f9e8f;color:#fff}.opt.no{background:#c0504d;color:#fff}
+.ans{display:none;font-size:14px;color:var(--mu);margin-top:6px}.ans.show{display:block}
+h3{margin:2px 0 4px;font-size:17px}.hint{color:var(--mu);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid var(--bd);padding:4px 8px;text-align:left}
+</style></head><body>
+<header><h1>🌏 Think You Can’t Learn a Language? Think Again</h1><p>Unit 2・學習迷思 ｜ 點擊藍色虛線的字詞，查看中文與補充用法</p></header>
+<nav id="nav"></nav><main id="main"></main>
+<div id="ov"><div id="sh"></div></div>
+<script>
+const V={
+wish:['wish','/wɪʃ/','v.','（與現在事實相反的）願望','I wish I were taller.','真希望我再高一點。','🌠','wish + 子句 → 假設語氣：現在用過去式（be 一律可用 were），可搭 could / would；過去用 had p.p.；未來用 would / could。文中 wish they could speak = 其實不會說。'],
+talkout:['talk oneself out of','','片語','說服自己放棄（某事）','Charlie talked her friend out of buying an expensive computer.','查莉說服朋友別買昂貴的電腦。','🙅','talk sb out of N./V-ing = 說服某人不要做；反義 talk sb into N./V-ing = 說服某人做。文中受詞是反身代名詞 themselves。'],
+startyoung:['start young','','片語','從小開始','Start early, finish strong.','早開始，強收尾。','🧒','start + Adj. 表「開始時處於某狀態」。類似：be born rich（生來富有）、die young（英年早逝）、grow old。'],
+lessof:['less of a … than','','片語','沒有…那麼算得上是…','Age is less of a problem than most people think.','年齡沒有多數人想的那麼是個問題。','⚖️','less of a/an + N. + than：比較兩者「程度」，N. 為單數可數名詞。反義 more of a/an + N.（更像是…）。'],
+pickup:['pick up','','片語動詞','①（自然）學會 ②開車接／取走 ③接收到（訊號）','You’ll pick up some Greek after studying in Athens.','在雅典讀書後你就會學會一些希臘語。','📻','文中是①：日常接觸自然習得，不刻意學。受詞為代名詞要夾中間：pick it up（✕ pick up it）。'],
+fluent:['fluent','/ˈfluənt/','adj.','流利的；流暢的','Penelope learned to speak fluent Spanish and Korean.','佩妮洛普學會說流利的西班牙語和韓語。','🗣️','衍生：fluency n. 流利；fluently adv.。be fluent in + 語言（精通某語言）。學測常考：bilingual 雙語的、native speaker 母語人士。'],
+accent:['accent','/ˈæksɛnt/','n.','口音；腔調','People from different regions often have different accents.','不同地區的人常有不同口音。','🌍','have a strong accent 口音很重；with an American accent。注意不要與 dialect（方言）混淆。重音在第一音節。'],
+advantage:['advantage','/ədˈvæntɪdʒ/','n.','優勢、優點','An advantage of online classes is that you can study anywhere.','線上課程的優點是你可以在任何地方學習。','⭐','take advantage of 利用（也可指占便宜）；have an advantage over 勝過；反義 disadvantage n. 缺點。'],
+tutor:['tutor','/ˈtutɚ/','n.','家教、私人教師','Daniel has a tutor to help him prepare for math exams.','丹尼爾有位家教協助他準備數學考試。','👩‍🏫','亦可作 v. 當家教／個別指導。online tutor 線上家教。'],
+myth:['myth','/mɪθ/','n.','迷思；神話','Many myths exist about learning.','關於學習有許多迷思。','🦄','myth 錯誤但流傳廣的觀念 ↔ fact 事實。字尾 th 發 /θ/。衍生：mythical adj. 神話的。'],
+app:['app','/æp/','n.','應用程式（application 的縮寫）','This app helps me learn words.','這個 App 幫我背單字。','📱','download / install an app；language-learning apps。'],
+what:['What matters is…','','文法','複合關係代名詞 what = the thing(s) that','What matters is how you solve the problem.','重要的是你怎麼解決問題。','🎯','引導名詞子句，作主詞／受詞／補語；作主詞視為單數，動詞用單數（matters, is）。與 that 差別：that 只是連接詞，後面子句完整；what 本身在子句中當主詞或受詞。'],
+thanks:['thanks to','','片語介系詞','幸虧；由於','Thanks to the app, I can study at home.','多虧這個 App，我在家就能學習。','🙏','後接名詞或 V-ing。近義：because of / owing to / due to。注意 because 後面接子句，不能接名詞。'],
+factor:['factor','/ˈfæktɚ/','n.','因素、要素','Safety should always be the first factor to consider.','安全永遠該是首要考量因素。','🧩','key / major factor 關鍵因素；近義 element。'],
+method:['method','/ˈmɛθəd/','n.','方法','Every teacher has a different teaching method.','每位老師的教學方法都不同。','🛠️','a method of / for + V-ing；近義 way（較口語）。'],
+population:['population','/ˌpɑpjəˈleʃən/','n.','人口；人口數','India is now the country with the biggest population.','印度現在是人口最多的國家。','👥','形容「多／少」要用 large / small population，不可說 many / few population。about half of the world’s population：「分數 + of + 名詞」，動詞看名詞單複數。'],
+patient:['patient','/ˈpeʃənt/','adj.','有耐心的','Jude was patient enough to explain the answer again.','裘德有耐心地再解釋一次答案。','🧘','n. 病人；patience n. 耐心；反義 impatient。be patient with sb 對某人有耐心。'],
+challenge:['challenge','/ˈtʃælɪndʒ/','n.','挑戰','We accepted the challenge and worked together.','我們接受挑戰並一起努力。','🏔️','accept / face a challenge；也可作 v.；challenging adj. 具挑戰性的。'],
+whether:['whether','/ˈwɛðɚ/','連接詞','是否（引導名詞子句）','The point is whether you really want to do this.','重點是你是否真的想做這件事。','❓','可作主詞（視為單數）、受詞、補語（文中為補語）。與 if 差別：介系詞後、主詞位置、接 to V、whether or not 皆只能用 whether。'],
+born:['be born with','','片語','天生具有（特質、能力）','She was born with a talent for music.','她天生有音樂才華。','👶','a talent for + N./V-ing 對…有天分；talented adj. 有天分的。'],
+early:['early on','','片語','在初期；一開始','Speaking early on helps a lot.','一開始就開口說很有幫助。','🌱','比 early 更強調「過程的初期」，可置句首：Early on, I made many mistakes.'],
+holdback:['hold back','','片語動詞','①阻礙（發展、進步）②隱瞞；忍住（情緒、眼淚）','Fear shouldn’t hold you back from trying new things.','恐懼不應阻礙你嘗試新事物。','🚧','hold sb back (from V-ing)；Julia tried to hold back her tears. 茱莉亞努力忍住眼淚。'],
+letgo:['let go of','','片語','放開；放下、放棄（想法、情緒）','Sometimes it’s best just to let small mistakes go.','有時最好就放下小錯誤。','🎈','let sb/sth go = let go of sb/sth。Don’t let go of the rope. 別放開繩子。']
+};
+Object.assign(V,{
+doubt:['doubt','/daʊt/','n./v.','懷疑；疑慮；疑問','I have no doubt that you’ll do well on the test.','我毫不懷疑你會考得好。','🤔','b 不發音；v. 懷疑（doubt that / whether）；doubtful adj.、undoubtedly adv.；no doubt / without doubt 毫無疑問。'],
+approach:['approach','/əˈprotʃ/','n./v.','方法；途徑；接近','We need a new approach to this problem.','我們需要新方法來處理這個問題。','🧭','approach to + N./V-ing（to 是介系詞）。文中 the right approach。',1],
+require:['require','/rɪˈkwaɪr/','v.','需要；要求','This job requires patience.','這份工作需要耐心。','📋','require sb to V；be required to V；requirement n. 要求；文中 it requires regular practice。',1],
+focus:['focus','/ˈfokəs/','v./n.','專注；焦點','Please focus on your work.','請專心工作。','🎯','focus on = concentrate on；ability to focus on study goals。',1],
+concentrate:['concentrate','/ˈkɑnsənˌtret/','v.','專心；集中','Concentrate on the lesson.','專心上課。','🔍','concentrate on = focus on；concentration n.。',1],
+ability:['ability','/əˈbɪləti/','n.','能力','She has the ability to learn fast.','她有快速學習的能力。','💪','have the ability to V；able adj.、enable v.；反義 inability。',1],
+abroad:['abroad','/əˈbrɔd/','adv.','在國外；到國外','He studied abroad for two years.','他出國念書兩年。','✈️','abroad 是副詞，前面不加介系詞：go abroad ✔、go to abroad ✘。同義 overseas。',1],
+perfect:['perfect','/ˈpɝfɪkt/','adj.','完美的','Nobody is perfect.','沒有人是完美的。','💯','v. /pɚˈfɛkt/ 使完美（重音不同）；perfectly adv.；Practice makes perfect.',1],
+progress:['progress','/ˈprɑɡrɛs/','n.','進步；進展','You are making great progress.','你進步很多。','📈','不可數名詞：make progress；v. /prəˈɡrɛs/ 前進（名動重音不同）；in progress 進行中。文中 slow your progress。',1],
+effort:['effort','/ˈɛfɚt/','n.','努力','It takes time and effort.','這需要時間與努力。','💦','make an effort to V；put effort into；effortless adj.。文中 time and effort。',1],
+motivation:['motivation','/ˌmotəˈveʃən/','n.','動機；動力','Music gives me motivation.','音樂給我動力。','🔥','motivate v.；be motivated to V。',1],
+bilingual:['bilingual','/baɪˈlɪŋɡwəl/','adj.','雙語的','She grew up bilingual.','她從小說雙語。','🌐','bi- 兩；multilingual 多語的；monolingual 單語的。呼應 Myth 3。',1],
+pronunciation:['pronunciation','/prəˌnʌnsiˈeʃən/','n.','發音','Your pronunciation is clear.','你的發音很清楚。','👄','動詞 pronounce 有 ou，名詞變 nun（拼字易錯）。',1],
+memorize:['memorize','/ˈmɛməˌraɪz/','v.','記住；背誦','I memorize ten words a day.','我每天背十個單字。','🧠','memory n. 記憶；learn by heart 同義。',1],
+mistake:['mistake','/mɪˈstek/','n./v.','錯誤；弄錯','Everyone makes mistakes.','每個人都會犯錯。','❌','make a mistake；by mistake 不小心；mistake A for B 把 A 誤認為 B；mistake–mistook–mistaken。',1],
+confident:['confident','/ˈkɑnfɪdənt/','adj.','有自信的','Speak in a confident voice.','用有自信的聲音說話。','😎','confidence n.；be confident of / about / that…；勿與 confidential（機密的）混淆。',1],
+improve:['improve','/ɪmˈpruv/','v.','改善；進步','Reading improves your vocabulary.','閱讀提升你的字彙量。','⬆️','improvement n.；improve on 改進。文中 one of the best ways to improve。',1],
+communicate:['communicate','/kəˈmjunəˌket/','v.','溝通','Language helps us communicate.','語言幫助我們溝通。','📡','communication n.；communicate with sb。',1],
+effective:['effective','/ɪˈfɛktɪv/','adj.','有效的','This is the most effective method.','這是最有效的方法。','✅','effect n. 影響；effectively adv.；與 efficient（有效率的）不同。',1],
+achieve:['achieve','/əˈtʃiv/','v.','達成；實現','She achieved her goal.','她達成了目標。','🏆','achievement n.；achieve one’s goal；同義 accomplish。',1],
+native:['native','/ˈnetɪv/','adj.','本國的；母語的','He is a native speaker of English.','他是英語母語人士。','🏡','native language = mother tongue；n. 本地人；be native to 原產於。',1],
+regular:['regular','/ˈrɛɡjəɚ/','adj.','規律的；定期的','Take regular exercise.','規律運動。','📅','regularly adv.；反義 irregular（如不規則動詞）。文中 regular practice。',1],
+talent:['talent','/ˈtælənt/','n.','天分；才能','She has a talent for languages.','她有語言天分。','🎻','a talent for + N.；talented adj.；gifted 更強調天賦。',1],
+normal:['normal','/ˈnɔrml/','adj.','正常的','It is normal to make mistakes.','犯錯是正常的。','👌','abnormal 異常的；normally adv.；norm n. 規範。',1],
+target:['target','/ˈtɑrɡɪt/','n.','目標','Spanish is my target language.','西班牙語是我的目標語言。','🏹','target language 想學的語言；亦可作 v. 以…為目標。',1],
+persuade:['persuade','/pɚˈsweɪd/','v.','說服','She persuaded me to join.','她說服我加入。','🗣️','persuade sb to V = talk sb into V-ing；dissuade sb from V-ing = talk sb out of；persuasion n.。學測常考。',1]
+});
+const IB=[
+['第1行 wish 假設語氣','wish 表「與現在事實相反或較難實現的願望」，後面子句用假設法：<br>① 現在：wish + S + <b>過去式</b>（be 用 were）／could／would<br>② 過去：wish + <b>had p.p.</b>　③ 未來：wish + would／could<br>文中：they <b>wish</b> they <b>could speak</b> another language（其實不會說）。<br>⚠️ wish to V = 想要（正式用語），與假設語氣不同。'],
+['第8行 start young','start + Adj. =「開始時處於某種狀態」：start young 從小開始、start fresh 重新開始、start small 從小處著手。<br>類似：die young、stay calm、grow old。'],
+['第10行 less of a/an + N. + than','「比較不是…；沒那麼算得上是…」。Age is <b>less of a problem than</b> most people think.<br>反義：more of a/an + N.（更像是…）：He is <b>more of a</b> singer than a dancer.<br>N. 用單數可數名詞。'],
+['第25行 thanks to','片語介系詞「幸虧；由於」，後接名詞或 V-ing：Thanks to <b>being</b> patient, she passed.<br>近義 owing to／due to／because of；反義 in spite of。'],
+['第1行 be born with sth','天生具有某特質、能力：She was born with a gift for music.<br>對照：be born to V（生來註定）、be born into a family（出生於…家庭）。'],
+['第23行 early on','「在某過程或階段的初期；一開始」，可置句首：Early on, I was shy.<br>early 較泛指「早」，early on 強調事情發展的初期。'],
+['Notes 1. talk sb out of／into','talk sb <b>out of</b> N./V-ing 說服某人放棄；talk sb <b>into</b> N./V-ing 說服某人做。<br>Charlie talked her friend out of buying an expensive computer. ／ My classmates talked me into trying some strange foods.<br>文中受詞是反身代名詞 themselves。同義 persuade／dissuade。'],
+['Notes 2. pick up 三義','a 學會（自然習得）You’ll pick up some Greek after studying in Athens.<br>b 開車接／取走 Sam went to pick his sister up.<br>c 接收到（訊號）Annie’s phone couldn’t pick up a signal.<br>及物：代名詞夾中間 pick <b>it</b> up。延伸：pick up speed 加速。'],
+['Notes 3. 複合關係代名詞 what','what = the thing(s) that，引導名詞子句：<br>作主詞（單數動詞）What matters is how you solve the problem.<br>作受詞 Tom explained what happened after the meeting.<br>作補語 The best part is what everyone learned.<br>★ what 子句不需先行詞；有先行詞用 that／which。'],
+['Notes 4. whether 名詞子句','作主詞（視為單數）Whether we go hiking depends on the weather.<br>作受詞 I wondered whether the store was still open.<br>作補語 The point is whether you really want to do this.<br>whether…or not；whether to V；介系詞後只能用 whether。'],
+['Notes 5. hold back','a 阻礙：hold sb/sth back／hold sb back from V-ing：Fear shouldn’t hold you back from trying new things.<br>b 隱瞞；忍住：Julia tried to hold back her tears.<br>延伸：hold on 等一下。'],
+['Notes 6. let go of','放開；放下、放棄：let sb/sth go = let go of sb/sth。Sometimes it’s best to let small mistakes go. ／ Don’t let go of the rope.<br>⚠️ let go of 的 of 不可省略。']];
+function vocab(){M.innerHTML='<input id="sq" placeholder="🔍 搜尋單字或中文…" style="width:100%;padding:9px 12px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:16px"><p class="hint">點卡片查看解釋並自動發音。📖＝雜誌單字　🎓＝學測加碼</p><div class="grid" id="vg"></div>';const r=()=>{const q=$('#sq').value.trim().toLowerCase();const ks=Object.keys(V).filter(x=>!q||(V[x][0]+V[x][3]).toLowerCase().includes(q));$('#vg').innerHTML=ks.length?ks.map(x=>`<div class="vc" data-k="${x}"><span>${V[x][6]}</span><b>${V[x][0]}</b><small>${V[x][3].split('；')[0].split('①')[0]}</small><br><small>${V[x][8]?'🎓 加碼':'📖 雜誌'}</small></div>`).join(''):`<p class="hint">沒有這個字。<button class="sm" onclick="say(sq.value)">🔊 直接唸唸看</button></p>`};$('#sq').oninput=r;r();window.scrollTo(0,0)}
+const S=[
+{t:'Introduction',e:'🤷',en:'Many people {wish|wish} they could speak another language, but before they even begin, they {talkout|talk themselves out of it}. These {doubt|doubts} often come from {myth|myths} about how language learning works, and knowing the truth might change the way you see your own abilities.',zh:'許多人希望自己能說另一種語言，但在開始之前就先說服自己放棄了。這些疑慮常源於對語言學習方式的迷思，而了解真相，或許會改變你看待自己能力的方式。',tip:'💡 第一段為「引言」：點出主題——人們因迷思而自我設限。學測主旨題常考這類「現象＋原因」。'},
+{t:'Myth 1',q:'“You have to {startyoung|start young} to become {fluent|fluent}.”',e:'🧒',en:'Age is {lessof|less of a problem} than most people think. While young children {pickup|pick up} {accent|accents} more easily, adults also have {advantage|advantages} such as stronger reading skills and a better ability to focus on study goals. Speaking a language well does not require a young age—it requires regular practice and the right approach.',zh:'年齡的問題沒有多數人想的那麼大。雖然幼童較容易學會口音，成人也有優勢，例如更強的閱讀能力和更能專注於學習目標。把語言說好不需要年紀小，而是需要規律練習和正確的方法。',tip:'💡 注意 While 在此表「讓步（雖然）」；dash（—）後是補充說明。第二題答案要點：regular → 副詞 regularly。'},
+{t:'Myth 2',q:'“You need to live abroad to truly learn a language.”',e:'🏠',en:'{what|What matters} is how much time you spend with your target language, not where you live. {thanks|Thanks to} {app|apps}, language websites, and online {tutor|tutors}, you can study a language without leaving home. Watching TV shows, reading posts, or chatting with native speakers online all count as great practice. Where you live does not decide how well you can learn.',zh:'重要的是你花多少時間接觸目標語言，而不是你住在哪裡。多虧有 App、語言網站和線上家教，你不必離家就能學語言。看電視節目、讀貼文或在線上和母語人士聊天，都算是很棒的練習。你住在哪裡並不能決定你能學得多好。',tip:'💡 what matters is… 為名詞子句作主詞，動詞用單數。not A but B 的反向寫法：B, not A。'},
+{t:'Myth 3',q:'“Some people are just {born|born with a talent} for languages.”',e:'🧬',en:'The most important {factor|factor} is how often you practice and {whether|whether} you are using helpful study {method|methods}. Think about it this way: About half of the world’s {population|population} speaks more than one language, which shows that knowing two or more languages is normal. Anyone can do it with enough time and effort.',zh:'最重要的因素是你多常練習，以及你是否使用有效的學習方法。換個角度想：全世界約有一半的人口會說不只一種語言，這顯示會兩種以上語言是很正常的。只要有足夠的時間和努力，任何人都做得到。',tip:'💡 which shows that… 的 which 指前面整句話（非限定用法）。about half of … 以分數說明比例。'},
+{t:'Myth 4',q:'“You have to speak perfectly before starting a conversation.”',e:'💬',en:'Waiting until you are perfect is only going to slow your progress. Mistakes are a normal part of learning, and most people are {patient|patient} and kind when someone is trying. In fact, speaking {early|early on} is one of the best ways to improve. You will learn much more from real conversations than from studying alone.',zh:'等到完美才開口，只會拖慢你的進步。犯錯是學習的正常部分，而且當有人努力嘗試時，大多數人都很有耐心且友善。事實上，及早開口說是最好的進步方式之一。你從真實對話中學到的，會比獨自讀書多得多。',tip:'💡 much more 的 much 強調比較級。Waiting until… 是動名詞片語作主詞。In fact 引出更強的論點。'},
+{t:'Conclusion',e:'🔓',en:'These are just a few of the many myths that can {holdback|hold language learners back}. Once you {letgo|let go of} them, you may find that the biggest {challenge|challenge} was never the language itself—it was the way you thought about your own ability to learn it.',zh:'這些只是眾多可能阻礙語言學習者的迷思中的一小部分。一旦你放下它們，你可能會發現，最大的挑戰從來都不是語言本身，而是你如何看待自己學習它的能力。',tip:'💡 Once 在此是連接詞「一旦」；結論回扣開頭：真正的障礙是「想法」。'}];
+const Q=[
+['（課本）Which statement best describes the author’s response to myth 2?',['Talking to native speakers is easier when living abroad.','People who live abroad don’t always learn the language quickly.','There are many ways to learn a language other than living abroad.','Living abroad is not the best way to learn a new language.'],2,'作者強調靠 apps、網站、線上家教、影集等都能學，故選 C。D 太絕對，文中並未說出國「不是最好」。'],
+['（課本）When it comes to studying languages, practicing ______ and with the right approach is one of the most important things. 填第二段單字的正確形式',['regular','regularly','regularity','regulate'],1,'修飾動名詞 practicing 要用副詞，並與 with the right approach 對等：regularly。'],
+['（課本）What does Myth 4 say about making mistakes?',['They are a normal part of learning.','They should be avoided if possible.','They make people lose interest.','They show someone should stop learning.'],0,'原文：Mistakes are a normal part of learning。'],
+['（課本）According to Myth 4, one of the best ways to improve is…',['Studying alone every day','Practicing in real conversations','Memorizing grammar rules early','Reading lots of material'],1,'原文：speaking early on…learn much more from real conversations。'],
+['Mia has no ______ that practicing every day will help her.',['doubt','accent','tutor','population'],0,'have no doubt that… 毫無疑問。'],
+['I wish I ______ fluent in French.',['am','were','will be','have been'],1,'wish 表與現在事實相反：過去式，be 用 were。'],
+['______ matters most is your attitude.',['That','What','Which','It'],1,'what = the thing that，在子句中作主詞。'],
+['Ben’s classmates talked him ______ joining the club, and now he loves it.',['out of','into','up','back'],1,'talk sb into V-ing 說服某人做某事。'],
+['______ you pass the exam depends on how hard you study.',['That','Whether','What','Which'],1,'depends on 表示「是否」，名詞子句作主詞用 Whether。'],
+['______ the app, I can learn Japanese at home.',['Thanks to','Instead of','Because','Even though'],0,'後面接名詞 the app，要用介系詞片語 Thanks to。']];
+const X=[
+['📚 字彙家族（學測高頻）','<table><tr><th>原字</th><th>衍生／搭配</th></tr><tr><td>doubt</td><td>doubtful, undoubtedly, beyond doubt</td></tr><tr><td>fluent</td><td>fluency, fluently, be fluent in</td></tr><tr><td>patient</td><td>patience, impatient, be patient with</td></tr><tr><td>advantage</td><td>disadvantage, take advantage of</td></tr><tr><td>challenge</td><td>challenging, face a challenge</td></tr></table>'],
+['🌠 wish 假設語氣三時態','現在：I wish I <b>were</b> / could …<br>過去：I wish I <b>had studied</b> harder.<br>未來：I wish it <b>would</b> stop raining.<br>學測常見：<b>If only</b> + 同樣動詞變化。'],
+['❓ whether vs. if','皆表「是否」，但<b>主詞位置、介系詞後、whether to V、whether or not</b> 只能用 whether。<br>I’m not sure <b>whether to</b> go. ／ It depends on <b>whether</b> he comes.'],
+['🎯 what vs. that vs. which','<b>what</b> = the thing that（子句缺主詞或受詞）<br><b>that</b> 連接詞（子句完整）<br>She told me <b>what</b> she saw. ／ She told me <b>that</b> she saw a cat.'],
+['🔗 片語動詞代名詞位置','pick <b>it</b> up ✔／pick up it ✘；hold <b>them</b> back ✔；let <b>it</b> go ✔。<br>但 let go <b>of</b> it：of 後是受詞，不拆開。'],
+['🧭 表原因：後面接什麼？','<b>接名詞／V-ing</b>：thanks to, because of, owing to, due to<br><b>接子句</b>：because, since, as'],
+['📖 閱讀題技巧：迷思—事實結構','全文模式「Myth → Fact」：主旨題找共同概念（練習與方法比天賦、環境、年齡重要）。<br>細節題先找關鍵詞（abroad, mistakes），再比對 Fact 段。'],
+['🧩 混合題／文意選填','先判斷詞性與形式：填空前後有 and with…→ 對等結構，需副詞。<br>注意單複數、時態、-ing / p.p.。'],
+['✍️ 學測作文可用句型','In my opinion, <b>…</b> is the best way. This is because …<br><b>Mistakes are a normal part of learning.</b><br>Practice makes perfect, but the right method makes it faster.<br>主題字：motivation, effort, progress, bilingual, native speaker, mother tongue, goal-setting。'],
+['🧠 學習方法小提醒','每日少量複習、大聲開口、把單字放進句子裡記。這也呼應本文：<b>how often you practice</b> 比 talent 更重要。']];
+const $=s=>document.querySelector(s),M=$('#main');
+const T=[['read','📖 課文'],['vocab','🃏 單字卡'],['ib','📦 Info Box'],['x','🎓 學測加碼'],['quiz','📝 練習']];
+const nv=$('#nav');T.forEach(([k,l])=>{const b=document.createElement('button');b.textContent=l;b.dataset.k=k;b.onclick=()=>go(k);nv.appendChild(b)});
+const mk=s=>s.replace(/\{(\w+)\|([^}]+)\}|([A-Za-z’]+)/g,(m,k,d,w)=>k?`<span class="w" data-k="${k}">${d}</span>`:`<span class="w2" data-x="${w}">${w}</span>`);
+function say(t){try{const u=new SpeechSynthesisUtterance(t);u.lang='en-US';speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function go(k){nv.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+if(k==='read')M.innerHTML='<div class="card"><b>📑 段落清單</b>（點選跳到該段）<br>'+S.map((s,i)=>`<button class="sm" onclick="document.getElementById('p${i}').scrollIntoView({behavior:'smooth'})">${s.e} ${s.t}</button>`).join(' ')+'<p class="hint">💡 課文中每個英文字都能直接點：有收錄的顯示解釋，沒收錄的也會發音。</p></div>'+S.map((s,i)=>`<div class="card" id="p${i}"><span class="pic">${s.e}</span><span class="tag ${i&&i<5?'m':''}">${s.t}</span>${s.q?`<div class="q">${mk(s.q)}</div>`:''}<p class="en">${mk(s.en)}</p><p class="hint">${s.tip}</p><div class="zh" id="z${i}">${s.zh}</div><button class="sm" onclick="z${i}.classList.toggle('show')">中文翻譯</button> <button class="sm" onclick="say(S[${i}].en.replace(/\\{\\w+\\|([^}]+)\\}/g,'$1'))">🔊 朗讀</button></div>`).join('');
+if(k==='ib')M.innerHTML='<p class="hint">雜誌 Info Box 與 Language Notes 全部重點</p>'+IB.map(x=>`<div class="card"><h3>${x[0]}</h3><div>${x[1]}</div></div>`).join('');if(k==='vocab')return vocab();if(k==='vocab0')M.innerHTML='<p class="hint">點卡片看詳細解釋、例句與延伸用法。</p><div class="grid">'+Object.keys(V).map(x=>`<div class="vc" data-k="${x}"><span>${V[x][6]}</span><b>${V[x][0]}</b><small>${V[x][3].split('；')[0].split('①')[0]}</small></div>`).join('')+'</div>';
+if(k==='x')M.innerHTML=X.map(x=>`<div class="card"><h3>${x[0]}</h3><div>${x[1]}</div></div>`).join('');
+if(k==='quiz'){let sc=0,dn=0;M.innerHTML='<p class="hint">前 4 題來自雜誌，後 6 題為學測風格加強題。</p><div id="sc" class="tag">0 / '+Q.length+'</div>'+Q.map((q,i)=>`<div class="card"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<button class="opt" data-q="${i}" data-j="${j}">${'ABCD'[j]}. ${o}</button>`).join('')}<div class="ans" id="a${i}">✅ 答案 ${'ABCD'[q[2]]}：${q[3]}</div></div>`).join('');
+M.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,j=+b.dataset.j,p=b.parentNode;if(p.dataset.d)return;p.dataset.d=1;dn++;if(j===Q[i][2]){sc++;b.classList.add('ok')}else{b.classList.add('no');p.querySelectorAll('.opt')[Q[i][2]].classList.add('ok')}$('#a'+i).classList.add('show');$('#sc').textContent=sc+' / '+Q.length+'（已答 '+dn+'）'})}
+window.scrollTo(0,0)}
+function word(x){const l=x.toLowerCase().replace(/’s$/,'');const c=[l,l.replace(/(es|s|ed|d|ing)$/,''),l.replace(/ing$/,'e'),l.replace(/ies$/,'y')];const k=Object.keys(V).find(h=>c.some(z=>V[h][0].toLowerCase()===z||h===z));if(k)return open(k);$('#sh').innerHTML=`<h2>${x}</h2><p class="hint">這個字不在單字庫中，已為你發音。</p><button class="sm" onclick="say('${l}')">🔊 再聽一次</button> <button class="sm" onclick="go('vocab');setTimeout(()=>{sq.value='${l}';sq.oninput()},0);$('#ov').classList.remove('on')">🔍 去單字卡搜尋</button> <button class="sm" onclick="$('#ov').classList.remove('on')">關閉</button>`;$('#ov').classList.add('on');say(l)}
+function open(k){const v=V[k];$('#sh').innerHTML=`<span class="big">${v[6]}</span><h2>${v[0]}</h2><div class="hint">${v[1]} ${v[2]} <button class="sm" onclick="say('${v[0].replace(/'/g,'')}')">🔊</button></div><h3>${v[3]}</h3><div class="ex">${v[4]} <button class="sm" onclick="say(V['${k}'][4])">🔊 例句</button><i>${v[5]}</i></div><h3>📌 補充用法</h3><p>${v[7]}</p><button class="sm" onclick="$('#ov').classList.remove('on')">關閉</button>`;$('#ov').classList.add('on');say(v[0].replace(/…|\.\.\./g,''))}
+document.addEventListener('click',e=>{const w2=e.target.closest('.w2');if(w2)return word(w2.dataset.x);const t=e.target.closest('[data-k]');if(t&&(t.classList.contains('w')||t.classList.contains('vc')))open(t.dataset.k);if(e.target.id==='ov')$('#ov').classList.remove('on')});
+go('read');
+</script></body></html>
